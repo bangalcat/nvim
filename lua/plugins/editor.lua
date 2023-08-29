@@ -1,0 +1,58 @@
+return {
+  {
+    "mbbill/undotree",
+    keys = {
+      { "<leader>fu", vim.cmd.UndotreeToggle },
+    },
+  },
+  -- add folding range to capabilities
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      capabilities = {
+        textDocument = {
+          foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          },
+        },
+      },
+    },
+  },
+
+  -- add nvim-ufo
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async",
+    event = "BufReadPost",
+    enabled = false,
+    opts = {},
+
+    init = function()
+      -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+      vim.keymap.set("n", "zR", function()
+        require("ufo").openAllFolds()
+      end)
+      vim.keymap.set("n", "zM", function()
+        require("ufo").closeAllFolds()
+      end)
+    end,
+  },
+
+  -- advanced switch plugin
+  {
+    "AndrewRadev/switch.vim",
+    event = { "BufReadPost" },
+    keys = {
+      { "<M-c>", "<cmd>Switch<CR>", { desc = "Switch" } },
+    },
+  },
+
+  {
+    "keaising/im-select.nvim",
+    event = { "BufReadPost" },
+    opts = {
+      default_command = "/opt/homebrew/bin/im-select",
+    },
+  },
+}
