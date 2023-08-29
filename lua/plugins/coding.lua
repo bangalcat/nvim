@@ -1,8 +1,16 @@
 return {
   {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    keys = function()
+      return {}
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+      "hrsh7th/cmp-emoji",
     },
     opts = function(_, opts)
       -- original LazyVim kind icon formatter

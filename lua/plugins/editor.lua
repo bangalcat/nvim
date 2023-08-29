@@ -1,10 +1,4 @@
 return {
-  {
-    "mbbill/undotree",
-    keys = {
-      { "<leader>fu", vim.cmd.UndotreeToggle },
-    },
-  },
   -- add folding range to capabilities
   {
     "neovim/nvim-lspconfig",
