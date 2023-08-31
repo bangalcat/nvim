@@ -19,6 +19,10 @@ return {
     },
     config = function()
       require("telescope").setup({
+        defaults = {
+          layout_config = {
+          }
+        },
         extensions = {
           undo = {
             side_by_side = true,
@@ -27,10 +31,12 @@ return {
               preview_height = 0.8,
             },
           },
+          media_files = {
+          }
         },
       })
       require("telescope").load_extension("undo")
-      -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+      require("telescope").load_extension("media_files")
     end,
   },
   {
