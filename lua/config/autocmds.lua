@@ -8,12 +8,3 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
     end
   end,
 })
--- formatter setup
--- currently, it is only for markdown files.
--- if 'null-ls' is removed, then add more setup.
-vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = ".md",
-  group = "FormatAutogroup",
-  command = "FormatWrite",
-})

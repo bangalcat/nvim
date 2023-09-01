@@ -4,6 +4,7 @@
 return {
   {
     "mhartington/formatter.nvim",
+    cmd = { "FormatWrite" },
     event = { "BufReadPre", "BufNewFile" },
     keys = {
       { "<leader>bf", "<cmd>Format<CR>", mode = "n", silent = true },
@@ -20,11 +21,6 @@ return {
           -- Formatter configurations for filetype "lua" go here
           -- and will be executed in order
           lua = {
-
-            -- "formatter.filetypes.lua" defines default configurations for the
-            -- "lua" filetype
-            require("formatter.filetypes.lua").stylua,
-
             -- You can also define your own configuration
             function()
               -- Supports conditional formatting
@@ -56,6 +52,14 @@ return {
             require("formatter.filetypes.any").remove_trailing_whitespace,
           },
         },
+      })
+
+      -- formatter setup
+      vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
+      vim.api.nvim_create_autocmd("BufWritePost", {
+        -- pattern = ".md",
+        group = "FormatAutogroup",
+        command = "FormatWrite",
       })
     end,
   },
