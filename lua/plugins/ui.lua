@@ -12,7 +12,7 @@ return {
       transparent = false,
       styles = {
         comments = { italic = true },
-        keywords = { italic = true },
+        keywordse= { italic = true },
         functions = {},
 
         variables = {},
@@ -130,7 +130,7 @@ return {
             {
               "progress",
               separator = " ",
-              padding = { left = 1, right = 0 }
+              padding = { left = 1, right = 0 },
             },
             { "location", padding = { left = 0, right = 1 } },
           },
