@@ -5,10 +5,10 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim", -- optional
     },
-    branch = "2.x.x", -- recommended
+    branch = "2.x.x",                  -- recommended
     ft = { "haskell", "lhaskell", "cabal", "cabalproject" },
     init = function() end,
-    config = function(_, opts)
+    config = function()
       local ht = require("haskell-tools")
       local bufnr = vim.api.nvim_get_current_buf()
       local def_opts = { noremap = true, silent = true, buffer = bufnr }
