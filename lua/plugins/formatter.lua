@@ -1,6 +1,6 @@
 -- This is temporary setup.
 -- When the 'null-ls' plugin is removed, then add more details.
---
+
 return {
   {
     "mhartington/formatter.nvim",
@@ -11,6 +11,19 @@ return {
     },
     config = function()
       local util = require("formatter.util")
+
+      local markdown_format = function()
+        return {
+          exe = "mdformat",
+          args = {
+            util.escape_path(util.get_current_buffer_file_path()),
+            "--",
+            "-",
+          },
+          stdin = true,
+        }
+      end
+
       require("formatter").setup({
         -- Enable or disable logging
         logging = true,
@@ -20,29 +33,10 @@ return {
         filetype = {
           -- Formatter configurations for filetype "lua" go here
           -- and will be executed in order
-          lua = {
-            -- You can also define your own configuration
-            function()
-              -- Supports conditional formatting
-              if util.get_current_buffer_file_name() == "special.lua" then
-                return nil
-              end
-
-              -- Full specification of configurations is down below and in Vim help
-              -- files
-              return {
-                exe = "stylua",
-                args = {
-                  "--search-parent-directories",
-                  "--stdin-filepath",
-                  util.escape_path(util.get_current_buffer_file_path()),
-                  "--",
-                  "-",
-                },
-                stdin = true,
-              }
-            end,
-          },
+          elixir = { require("formatter.filetypes.elixir").mixformat },
+          lua = { require("formatter.filetypes.lua").stylua },
+          -- markdown = { markdown_format },
+          -- telekasten = { markdown_format },
 
           -- Use the special "*" filetype for defining formatter configurations on
           -- any filetype
