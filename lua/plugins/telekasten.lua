@@ -24,7 +24,7 @@ return {
       { "<leader>kd", "<cmd>Telekasten goto_today<CR>" },
       { "<M-d>",      "<cmd>Telekasten goto_today<CR>" },
       { "<leader>kz", "<cmd>Telekasten follow_link<CR>" },
-      { "<M-f>",      "<cmd>Telekasten follow_link<CR>" },
+      { "<C-]>",      "<cmd>Telekasten follow_link<CR>" },
       { "<leader>kn", "<cmd>Telekasten new_note<CR>" },
       { "<leader>kc", "<cmd>Telekasten show_calendar<CR>" },
       { "<leader>kb", "<cmd>Telekasten show_backlinks<CR>" },
