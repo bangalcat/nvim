@@ -42,8 +42,8 @@ return {
         take_over_my_home = true,
 
         -- dir names for special notes (absolute path or subdir name)
-        dailies = home .. "/daily/" .. year .. "/" .. month,
-        weeklies = home .. "/weekly/" .. year,
+        dailies = home .. "/Dated Notes/Notes/daily/" .. year .. "/" .. month,
+        weeklies = home .. "/Dated Notes/Notes/weekly/" .. year,
         templates = home .. "/.telekasten/templates",
 
         -- image (sub)dir for pasting
