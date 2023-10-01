@@ -22,9 +22,10 @@ return {
           enable = true,
           settings = elixirls.settings({
             dialyzerEnabled = false,
-            enableTestLenses = false,
+            enableTestLenses = true,
           }),
           on_attach = function()
+            vim.keymap.set("n", "<space>hca", vim.lsp.codelens.run, { desc = "run codelens" })
             vim.keymap.set("n", "<leader>csp", "<cmd>ElixirFromPipe<cr>", { buffer = true, noremap = true })
             vim.keymap.set("n", "<leader>csf", "<cmd>ElixirToPipe<cr>", { buffer = true, noremap = true })
             vim.keymap.set("v", "<leader>cse", "<cmd>ElixirExpandMacro<cr>", { buffer = true, noremap = true })
