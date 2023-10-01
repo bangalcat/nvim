@@ -17,3 +17,5 @@ vim.keymap.set({ "n" }, "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- my own keymaps
 vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "<Tab>", "")
+vim.keymap.set("n", "<A-i>", "<C-i>", { noremap = false })
