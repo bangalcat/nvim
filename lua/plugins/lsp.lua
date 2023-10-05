@@ -10,10 +10,29 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    },
     opts = {
-      inlay_hints = { enabled = true },
+      inlay_hints = { enabled = false },
+      diagnostics = { virtual_text = { prefix = "icons" } },
 
       servers = {
+        jsonls = {
+          -- lazy-load schemastore when needed
+          on_new_config = function(new_config)
+            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+            vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+          end,
+          settings = {
+            json = {
+              format = {
+                enable = true,
+              },
+              validate = { enable = true },
+            },
+          },
+        },
         tsserver = {
           root_dir = function(...)
             return require("lspconfig.util").root_pattern(".git")(...)
@@ -45,10 +64,27 @@ return {
           },
         },
         html = {},
+        emmet_ls = {},
         -- marksman = {},
         -- gopls = {},
         tailwindcss = {
           filetypes_exclude = { "markdown" },
+          init_options = {
+            userLanguages = {
+              elixir = "html-eex",
+              eelixir = "html-eex",
+              heex = "html-eex",
+            },
+          },
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = {
+                  'class[:]\\s*"([^"]*)"',
+                },
+              },
+            },
+          },
         },
       },
       setup = {
@@ -59,16 +95,27 @@ return {
             return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
           end, tw.default_config.filetypes)
         end,
-      },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      diagnostics = { virtual_text = { prefix = "icons" } },
-      setup = {
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
+        end,
+        emmet_ls = function(_, opts)
+          opts.capabilities.textDocument.completion.completionItem.snippetSupport = true
+          opts.filetypes = {
+            "css",
+            "eruby",
+            "html",
+            "heex",
+            "elixir",
+            "javascript",
+            "javascriptreact",
+            "less",
+            "sass",
+            "scss",
+            "svelte",
+            "pug",
+            "typescriptreact",
+            "vue",
+          }
         end,
       },
     },
@@ -92,7 +139,7 @@ return {
     end,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     enabled = false,
   },
 }
