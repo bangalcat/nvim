@@ -16,13 +16,13 @@
     "description": "inline def define",
     "prefix": "defi",
     "body": [
-      "def ${1:function}${2:(args)}, do: ${3:body}"
+      "def ${1:function}(${2:args}), do: ${3:body}"
     ]
   },
   "defp inline": {
     "description": "inline defp define",
     "prefix": "defpi",
-    "body": "defp ${1:function}${2:(args)}, do: ${3:body}"
+    "body": "defp ${1:function}(${2:args}), do: ${3:body}"
   },
   "ii": {
     "prefix": "ii",
@@ -45,19 +45,22 @@
     "description": "IO.inspect(label: \"<optional message>; Module:line_nr\")"
   },
   ":": {
-    "prefix": ":",
+    "prefix": "kva",
     "body": "${2:key}: ${3:value}$1",
     "description": "key: value"
   },
   "::": {
-    "prefix": "::",
+    "prefix": "kvs",
     "body": "${2:key} => ${3:value}$1",
     "description": "key => value"
   },
   "p": {
     "prefix": "p",
     "body": "|> $0",
-    "description": "your favorite pipeline (|>)"
+    "description": "your favorite pipeline (|>)",
+    "luasnip": {
+      "priority": 5000
+    }
   },
   "ok": {
     "prefix": "ok",
