@@ -19,7 +19,7 @@ return {
         sidebars = "dark",
         floats = "dark",
       },
-      sidebars = { "qf", "help" },
+      sidebars = { "qf", "help", "terminal" },
       lualine_bold = true,
       on_highlights = function(hl, c)
         local prompt = "#2d3149"
@@ -49,6 +49,9 @@ return {
         hl.TelescopeResultsTitle = {
           bg = c.bg_dark,
           fg = c.bg_dark,
+        }
+        hl.MiniIndentscopeSymbol = {
+          fg = "#dae019",
         }
       end,
     },
