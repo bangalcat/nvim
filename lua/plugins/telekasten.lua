@@ -13,7 +13,7 @@ return {
   {
     "renerocksai/telekasten.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
-    lazy = false,
+    lazy = "VeryLazy",
     keys = {
       -- Launch panel if nothing is typed after <leader>z
       { "<leader>z",  "<cmd>Telekasten panel<CR>" },
