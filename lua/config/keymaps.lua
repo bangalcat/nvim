@@ -4,7 +4,7 @@
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "h", "gh")
+vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
