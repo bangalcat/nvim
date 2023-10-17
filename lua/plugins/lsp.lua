@@ -105,7 +105,6 @@ return {
             "eruby",
             "html",
             "heex",
-            "elixir",
             "javascript",
             "javascriptreact",
             "less",

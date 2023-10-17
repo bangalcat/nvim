@@ -18,6 +18,7 @@ return {
         "html",
         "javascript",
         "jsdoc",
+        "json5",
         "json",
         "lua",
         "luadoc",
