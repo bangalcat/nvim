@@ -20,8 +20,9 @@ return {
         credo = { enable = true },
         elixirls = {
           enable = true,
+          tag = "v0.17.5",
           settings = elixirls.settings({
-            dialyzerEnabled = false,
+            dialyzerEnabled = true,
             enableTestLenses = true,
           }),
           on_attach = function()
