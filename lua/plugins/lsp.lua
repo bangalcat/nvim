@@ -86,6 +86,19 @@ return {
             },
           },
         },
+        lexical = {
+          filetypes = {
+            "elixir",
+            "eelixir",
+            "heex",
+          },
+          root_dir = function(fname)
+            local util = require("lspconfig.util")
+            return util.find_git_ancestor(fname) or util.root_pattern("mix.exs")(fname) or vim.loop.os_homedir()
+          end,
+          cmd = { "/Users/donghyun/workspace/utils/lexical/bin/start_lexical.sh" },
+          settings = {},
+        },
       },
       setup = {
         tailwindcss = function(_, opts)
