@@ -9,6 +9,7 @@ return {
   },
   {
     "elixir-tools/elixir-tools.nvim",
+    enabled = false,
     event = { "BufReadPre", "BufNewFile" },
     ft = { "elixir", "heex", "eex" },
     config = function()
@@ -20,7 +21,7 @@ return {
         credo = { enable = true },
         elixirls = {
           enable = true,
-          tag = "v0.17.7",
+          tag = "v0.17.10",
           settings = elixirls.settings({
             dialyzerEnabled = true,
             enableTestLenses = true,
