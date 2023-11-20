@@ -17,6 +17,7 @@ return {
   -- advanced switch plugin
   {
     "AndrewRadev/switch.vim",
+    enabled = false,
     event = { "BufReadPost" },
     keys = {
       { "<M-c>", "<cmd>Switch<CR>", { desc = "Switch" } },
