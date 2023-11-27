@@ -4,6 +4,7 @@
 return {
   {
     "mhartington/formatter.nvim",
+    enabled = false,
     cmd = { "FormatWrite" },
     event = { "BufReadPre", "BufNewFile" },
     keys = {

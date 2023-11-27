@@ -15,7 +15,7 @@ return {
     },
     opts = {
       inlay_hints = { enabled = false },
-      diagnostics = { virtual_text = { prefix = "icons" } },
+      diagnostics = { virtual_text = { prefix = "icons" }, update_in_insert = true },
 
       servers = {
         jsonls = {
@@ -64,7 +64,22 @@ return {
           },
         },
         html = {},
-        emmet_ls = {},
+        emmet_ls = {
+          filetypes = {
+            "css",
+            "eruby",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "less",
+            "sass",
+            "scss",
+            "svelte",
+            "pug",
+            "typescriptreact",
+            "vue",
+          },
+        },
         -- marksman = {},
         -- gopls = {},
         tailwindcss = {
@@ -87,6 +102,7 @@ return {
           },
         },
         lexical = {
+          mason = false,
           filetypes = {
             "elixir",
             "eelixir",
@@ -94,8 +110,8 @@ return {
           },
           root_dir = function(fname)
             local util = require("lspconfig.util")
-            -- return util.find_git_ancestor(fname) or util.root_pattern("mix.exs")(fname) or vim.loop.os_homedir()
-            return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+            return util.find_git_ancestor(fname) or util.root_pattern("mix.exs")(fname) or vim.loop.os_homedir()
+            -- return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
           end,
           cmd = { "/Users/donghyun/workspace/utils/lexical/bin/start_lexical.sh" },
           -- cmd = { "/Users/donghyun/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
@@ -103,6 +119,12 @@ return {
         },
       },
       setup = {
+        -- lexical = function(_, opts)
+        --   opts.flags = {
+        --     debounce_text_changes = 150,
+        --     allow_incremental_sync = false,
+        --   }
+        -- end,
         tailwindcss = function(_, opts)
           local tw = require("lspconfig.server_configurations.tailwindcss")
           --- @param ft string
@@ -115,21 +137,6 @@ return {
         end,
         emmet_ls = function(_, opts)
           opts.capabilities.textDocument.completion.completionItem.snippetSupport = true
-          opts.filetypes = {
-            "css",
-            "eruby",
-            "html",
-            "heex",
-            "javascript",
-            "javascriptreact",
-            "less",
-            "sass",
-            "scss",
-            "svelte",
-            "pug",
-            "typescriptreact",
-            "vue",
-          }
         end,
       },
     },

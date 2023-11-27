@@ -18,7 +18,7 @@ return {
 
       elixir.setup({
         nextls = { enable = false },
-        credo = { enable = true },
+        credo = { enable = false },
         elixirls = {
           enable = true,
           tag = "v0.17.10",
@@ -37,6 +37,21 @@ return {
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
+    },
+  },
+  {
+
+    "jfpedroza/neotest-elixir",
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "jfpedroza/neotest-elixir",
+    },
+    opts = {
+      adapters = {
+        ["neotest-elixir"] = {},
+      },
     },
   },
 }

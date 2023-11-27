@@ -8,3 +8,10 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "Filetype" }, {
+  pattern = { "heex" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
