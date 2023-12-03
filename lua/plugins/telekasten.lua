@@ -16,15 +16,15 @@ return {
     lazy = "VeryLazy",
     keys = {
       -- Launch panel if nothing is typed after <leader>z
-      { "<leader>z",  "<cmd>Telekasten panel<CR>" },
+      { "<leader>z", "<cmd>Telekasten panel<CR>" },
 
       -- Most used functions
       { "<leader>kf", "<cmd>Telekasten find_notes<CR>" },
       { "<leader>kg", "<cmd>Telekasten search_notes<CR>" },
       { "<leader>kd", "<cmd>Telekasten goto_today<CR>" },
-      { "<M-d>",      "<cmd>Telekasten goto_today<CR>" },
+      { "<M-d>", "<cmd>Telekasten goto_today<CR>" },
       { "<leader>kz", "<cmd>Telekasten follow_link<CR>" },
-      { "<C-]>",      "<cmd>Telekasten follow_link<CR>" },
+      { "<C-]>", "<cmd>Telekasten follow_link<CR>" },
       { "<leader>kn", "<cmd>Telekasten new_note<CR>" },
       { "<leader>kc", "<cmd>Telekasten show_calendar<CR>" },
       { "<leader>kb", "<cmd>Telekasten show_backlinks<CR>" },
@@ -32,7 +32,7 @@ return {
       { "<leader>k[", "<cmd>Telekasten insert_link<CR>" },
 
       -- Call insert link automatically when we start typing a link
-      { "[[z",        "<cmd>Telekasten insert_link<CR>",    mode = { "i" } },
+      { "[[z", "<cmd>Telekasten insert_link<CR>", mode = { "i" } },
     },
     config = function()
       require("telekasten").setup({
