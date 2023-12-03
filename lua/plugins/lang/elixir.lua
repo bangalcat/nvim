@@ -40,6 +40,37 @@ return {
     },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        lexical = {
+          mason = false,
+          filetypes = {
+            "elixir",
+            "eelixir",
+            "heex",
+          },
+          root_dir = function(fname)
+            local util = require("lspconfig.util")
+            return util.find_git_ancestor(fname) or util.root_pattern("mix.exs")(fname) or vim.loop.os_homedir()
+            -- return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+          end,
+          cmd = { "/Users/donghyun/workspace/utils/lexical/bin/start_lexical.sh" },
+          -- cmd = { "/Users/donghyun/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+          settings = {},
+        },
+      },
+    },
+    seutp = {
+      -- lexical = function(_, opts)
+      --   opts.flags = {
+      --     debounce_text_changes = 150,
+      --     allow_incremental_sync = false,
+      --   }
+      -- end,
+    },
+  },
+  {
 
     "jfpedroza/neotest-elixir",
   },

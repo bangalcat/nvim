@@ -10,9 +10,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-    },
     opts = {
       inlay_hints = { enabled = false },
       diagnostics = { virtual_text = { prefix = "icons" }, update_in_insert = true },
@@ -82,56 +79,8 @@ return {
         },
         -- marksman = {},
         -- gopls = {},
-        tailwindcss = {
-          filetypes_exclude = { "markdown" },
-          init_options = {
-            userLanguages = {
-              elixir = "html-eex",
-              eelixir = "html-eex",
-              heex = "html-eex",
-            },
-          },
-          settings = {
-            tailwindCSS = {
-              experimental = {
-                classRegex = {
-                  'class[:]\\s*"([^"]*)"',
-                },
-              },
-            },
-          },
-        },
-        lexical = {
-          mason = false,
-          filetypes = {
-            "elixir",
-            "eelixir",
-            "heex",
-          },
-          root_dir = function(fname)
-            local util = require("lspconfig.util")
-            return util.find_git_ancestor(fname) or util.root_pattern("mix.exs")(fname) or vim.loop.os_homedir()
-            -- return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
-          end,
-          cmd = { "/Users/donghyun/workspace/utils/lexical/bin/start_lexical.sh" },
-          -- cmd = { "/Users/donghyun/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
-          settings = {},
-        },
       },
       setup = {
-        -- lexical = function(_, opts)
-        --   opts.flags = {
-        --     debounce_text_changes = 150,
-        --     allow_incremental_sync = false,
-        --   }
-        -- end,
-        tailwindcss = function(_, opts)
-          local tw = require("lspconfig.server_configurations.tailwindcss")
-          --- @param ft string
-          opts.filetypes = vim.tbl_filter(function(ft)
-            return not vim.tbl_contains(opts.filetypes_exclude or {}, ft)
-          end, tw.default_config.filetypes)
-        end,
         clangd = function(_, opts)
           opts.capabilities.offsetEncoding = { "utf-16" }
         end,
