@@ -7,7 +7,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>pp", [["_dP]], { desc = "Paste over selection" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])

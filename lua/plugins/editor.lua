@@ -31,4 +31,10 @@ return {
       default_command = "/opt/homebrew/bin/im-select",
     },
   },
+  {
+    "HakonHarnes/img-clip.nvim",
+    keys = {
+      { "<leader>pi", "<cmd>PasteImage<CR>", { desc = "Paste Image" } },
+    },
+  },
 }
