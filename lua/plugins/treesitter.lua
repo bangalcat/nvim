@@ -2,6 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     version = false, -- last release is way too old and doesn't work on Windows
+    -- commit = "9775d5d",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSUpdateSync" },
@@ -29,6 +30,7 @@ return {
         "python",
         "query",
         "regex",
+        "ruby",
         "tsx",
         "typescript",
         "vim",

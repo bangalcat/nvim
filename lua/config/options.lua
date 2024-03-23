@@ -7,7 +7,6 @@ vim.g.mapleader = " "
 local opts = {
   ai = true,
   autoindent = true,
-  foldenable = false,
   spelllang = "en,cjk",
   undodir = os.getenv("HOME") .. "/.vim/undodir",
   undofile = true, -- enable persistent undo

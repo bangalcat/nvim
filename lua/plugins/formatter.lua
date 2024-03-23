@@ -4,7 +4,6 @@
 return {
   {
     "mhartington/formatter.nvim",
-    enabled = false,
     cmd = { "FormatWrite" },
     event = { "BufReadPre", "BufNewFile" },
     keys = {
@@ -12,18 +11,6 @@ return {
     },
     config = function()
       local util = require("formatter.util")
-
-      local markdown_format = function()
-        return {
-          exe = "mdformat",
-          args = {
-            util.escape_path(util.get_current_buffer_file_path()),
-            "--",
-            "-",
-          },
-          stdin = true,
-        }
-      end
 
       require("formatter").setup({
         -- Enable or disable logging
@@ -34,10 +21,11 @@ return {
         filetype = {
           -- Formatter configurations for filetype "lua" go here
           -- and will be executed in order
-          elixir = { require("formatter.filetypes.elixir").mixformat },
-          lua = { require("formatter.filetypes.lua").stylua },
+          -- elixir = { require("formatter.filetypes.elixir").mixformat },
+          -- lua = { require("formatter.filetypes.lua").stylua },
           -- markdown = { markdown_format },
           -- telekasten = { markdown_format },
+          -- ruby = { require("formatter.filetypes.ruby").rubocop },
 
           -- Use the special "*" filetype for defining formatter configurations on
           -- any filetype

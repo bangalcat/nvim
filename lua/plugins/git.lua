@@ -33,5 +33,13 @@ return {
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
     },
+    {
+      "almo7aya/openingh.nvim",
+      keys = {
+        { "gko", "<cmd>OpenInGHRepo<CR>", desc = "Open Github Repo" },
+        { "gkf", "<cmd>OpenInGHFile<CR>", desc = "Open current File in Github" },
+        { "gkl", "<cmd>OpenInGHFileLines<CR>", desc = "Open current Line in Github" },
+      },
+    },
   },
 }
