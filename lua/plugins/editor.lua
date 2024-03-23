@@ -20,7 +20,7 @@ return {
     enabled = false,
     event = { "BufReadPost" },
     keys = {
-      { "<M-c>", "<cmd>Switch<CR>", { desc = "Switch" } },
+      { "<M-c>", "<cmd>Switch<CR>", desc = "Switch" },
     },
   },
 
@@ -34,7 +34,7 @@ return {
   {
     "HakonHarnes/img-clip.nvim",
     keys = {
-      { "<leader>pi", "<cmd>PasteImage<CR>", { desc = "Paste Image" } },
+      { "<leader>pi", "<cmd>PasteImage<CR>", desc = "Paste Image" },
     },
   },
 }

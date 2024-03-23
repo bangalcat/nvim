@@ -96,6 +96,8 @@ return {
             },
           },
         },
+        solargraph = { init_options = { format = false, diagnostics = false, autoformat = false, formatting = false } },
+        ruby_ls = { init_options = { formatter = "auto" } },
         -- marksman = {},
         -- gopls = {},
       },
