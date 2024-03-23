@@ -12,6 +12,26 @@ return {
     config = function()
       local util = require("formatter.util")
 
+      local L = {}
+      function L.rubocop()
+        return {
+          exe = "./bin/rubocop",
+          args = {
+            "--fix-layout",
+            "--stdin",
+            util.escape_path(util.get_current_buffer_file_name()),
+            "--format",
+            "files",
+          },
+          stdin = true,
+          transform = function(text)
+            table.remove(text, 1)
+            table.remove(text, 1)
+            return text
+          end,
+        }
+      end
+
       require("formatter").setup({
         -- Enable or disable logging
         logging = true,
@@ -25,7 +45,7 @@ return {
           -- lua = { require("formatter.filetypes.lua").stylua },
           -- markdown = { markdown_format },
           -- telekasten = { markdown_format },
-          -- ruby = { require("formatter.filetypes.ruby").rubocop },
+          ruby = { L.rubocop },
 
           -- Use the special "*" filetype for defining formatter configurations on
           -- any filetype
