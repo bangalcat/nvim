@@ -27,3 +27,5 @@ vim.filetype.add({
 for k, v in pairs(opts) do
   vim.opt[k] = v
 end
+
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }

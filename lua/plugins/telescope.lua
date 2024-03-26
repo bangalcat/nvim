@@ -78,7 +78,7 @@ return {
               ["<c-t>"] = open_with_trouble,
               ["<a-t>"] = open_selected_with_trouble,
               ["<a-i>"] = find_files_no_ignore,
-              ["<a-h>"] = find_files_with_hidden,
+              ["<C-h>"] = find_files_with_hidden,
               ["<C-Down>"] = actions.cycle_history_next,
               ["<C-Up>"] = actions.cycle_history_prev,
               ["<C-f>"] = actions.preview_scrolling_down,
