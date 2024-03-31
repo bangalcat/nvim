@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 return {
   {
     "telescope.nvim",
@@ -8,7 +6,7 @@ return {
       {
         "debugloop/telescope-undo.nvim",
         config = function()
-          Util.on_load("telescope.nvim", function()
+          LazyVim.on_load("telescope.nvim", function()
             require("telescope").load_extension("undo")
           end)
         end,
@@ -18,7 +16,7 @@ return {
         build = "make",
         enabled = vim.fn.executable("make") == 1,
         config = function()
-          Util.on_load("telescope.nvim", function()
+          LazyVim.on_load("telescope.nvim", function()
             require("telescope").load_extension("fzf")
           end)
         end,
@@ -36,7 +34,7 @@ return {
       },
       { "<leader>fu", "<cmd>Telescope undo<cr>" },
     },
-    opts = function(_, opts)
+    opts = function()
       local actions = require("telescope.actions")
 
       local open_with_trouble = function(...)
@@ -48,16 +46,16 @@ return {
       local find_files_no_ignore = function()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        Util.telescope("find_files", { no_ignore = true, default_text = line })()
+        LazyVim.telescope("find_files", { no_ignore = true, default_text = line })()
       end
       local find_files_with_hidden = function()
         local action_state = require("telescope.actions.state")
         local line = action_state.get_current_line()
-        Util.telescope("find_files", { hidden = true, default_text = line })()
+        LazyVim.telescope("find_files", { hidden = true, default_text = line })()
       end
+
       return {
         defaults = {
-          layout_config = {},
           prompt_prefix = " ",
           selection_caret = " ",
           -- open files in the first window that is an actual file.
@@ -115,7 +113,7 @@ return {
   {
     "telescope.nvim",
     opts = function(_, opts)
-      if not Util.has("flash.nvim") then
+      if not LazyVim.has("flash.nvim") then
         return
       end
       local function flash(prompt_bufnr)

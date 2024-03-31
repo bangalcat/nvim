@@ -21,7 +21,7 @@ return {
         credo = { enable = false },
         elixirls = {
           enable = true,
-          tag = "v0.17.10",
+          tag = "v0.20.0",
           settings = elixirls.settings({
             dialyzerEnabled = true,
             enableTestLenses = true,
@@ -45,11 +45,6 @@ return {
       servers = {
         lexical = {
           mason = false,
-          filetypes = {
-            "elixir",
-            "eelixir",
-            "heex",
-          },
           cmd = { "/Users/donghyun/workspace/utils/lexical/bin/start_lexical.sh" },
           -- cmd = { "/Users/donghyun/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
           settings = {},
