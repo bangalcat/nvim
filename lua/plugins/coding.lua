@@ -4,7 +4,6 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
         require("luasnip.loaders.from_vscode").lazy_load({
           paths = { "./my_snippets" },
         })
@@ -12,7 +11,7 @@ return {
     },
     opts = {
       history = true,
-      delete_check_events = "InsertLeave",
+      delete_check_events = "TextChanged",
     },
     keys = function()
       return {}
@@ -22,13 +21,18 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+      "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
     },
     opts = function(_, _opts)
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
       return {
+        auto_brackets = {}, -- configure any filetype to auto add brackets
         completion = {
           completeopt = "menu,menuone,noinsert",
         },
@@ -72,6 +76,11 @@ return {
           },
         },
         sorting = defaults.sorting,
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
       }
     end,
   },
