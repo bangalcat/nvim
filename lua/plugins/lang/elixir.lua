@@ -45,8 +45,8 @@ return {
       servers = {
         lexical = {
           mason = false,
-          cmd = { "/Users/donghyun/workspace/utils/lexical/bin/start_lexical.sh" },
-          -- cmd = { "/Users/donghyun/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+          cmd = { os.getenv("HOME") .. "/workspace/utils/lexical/bin/start_lexical.sh" },
+          -- cmd = { os.getenv("HOME") .. "/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
           settings = {},
         },
       },
