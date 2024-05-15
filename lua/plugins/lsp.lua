@@ -5,6 +5,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         -- "marksman",
         "markdownlint",
+        "ruby-lsp",
       })
     end,
   },
@@ -96,8 +97,6 @@ return {
             },
           },
         },
-        solargraph = { init_options = { format = false, diagnostics = false, autoformat = false, formatting = false } },
-        ruby_lsp = { init_options = { formatter = "auto" } },
         -- marksman = {},
         -- gopls = {},
       },
