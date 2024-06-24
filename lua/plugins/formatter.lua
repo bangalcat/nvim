@@ -3,6 +3,17 @@
 
 return {
   {
+
+    "stevearc/conform.nvim",
+    opts = {
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2", "-ci" },
+        },
+      },
+    },
+  },
+  {
     "mhartington/formatter.nvim",
     enabled = false,
     cmd = { "FormatWrite" },
