@@ -13,7 +13,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     {
       "LazyVim/LazyVim",
-      tag = "v12.19.1",
+      tag = "v12.22.1",
       import = "lazyvim.plugins",
     },
     -- import any extras modules here
