@@ -2,42 +2,12 @@ return {
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "nextls",
-      })
+      vim.list_extend(opts.ensure_installed, {})
     end,
   },
   {
-    "elixir-tools/elixir-tools.nvim",
-    enabled = false,
-    event = { "BufReadPre", "BufNewFile" },
-    ft = { "elixir", "heex", "eex" },
-    config = function()
-      local elixir = require("elixir")
-      local elixirls = require("elixir.elixirls")
-
-      elixir.setup({
-        nextls = { enable = false },
-        credo = { enable = false },
-        elixirls = {
-          enable = true,
-          tag = "v0.20.0",
-          settings = elixirls.settings({
-            dialyzerEnabled = true,
-            enableTestLenses = true,
-          }),
-          on_attach = function()
-            vim.keymap.set("n", "<space>hca", vim.lsp.codelens.run, { desc = "run codelens" })
-            vim.keymap.set("n", "<leader>csp", "<cmd>ElixirFromPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("n", "<leader>csf", "<cmd>ElixirToPipe<cr>", { buffer = true, noremap = true })
-            vim.keymap.set("v", "<leader>cse", "<cmd>ElixirExpandMacro<cr>", { buffer = true, noremap = true })
-          end,
-        },
-      })
-    end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "elixir", "heex", "eex" } },
   },
   {
     "neovim/nvim-lspconfig",
@@ -49,19 +19,11 @@ return {
           -- cmd = { os.getenv("HOME") .. "/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
           settings = {},
         },
+        -- elixirls = {},
       },
-    },
-    seutp = {
-      -- lexical = function(_, opts)
-      --   opts.flags = {
-      --     debounce_text_changes = 150,
-      --     allow_incremental_sync = false,
-      --   }
-      -- end,
     },
   },
   {
-
     "jfpedroza/neotest-elixir",
   },
   {
@@ -74,5 +36,21 @@ return {
         ["neotest-elixir"] = {},
       },
     },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = function(_, opts)
+      opts.linters_by_ft = {
+        elixir = { "credo" },
+      }
+      opts.linters = {
+        credo = {
+          condition = function(ctx)
+            return vim.fs.find({ ".credo.exs" }, { path = ctx.filename, upward = true })[1]
+          end,
+        },
+      }
+    end,
   },
 }

@@ -1,12 +1,19 @@
 return {
   {
-    "iamcco/markdown-preview.nvim",
-    enabled = false,
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown", "telekasten" },
-    build = "cd app && npm install",
+    "mpas/marp-nvim",
     keys = {
-      { "<leader>mp", "<cmd>MarkdownPreview<CR>", desc = "MarkdownPreview" },
+      { "<Leader>MT", "<cmd>MarpToggle<cr>", noremap = true, silent = true, desc = "Toggle Marp" },
+      { "<Leader>MS", "<cmd>MarpStatus<cr>", noremap = true, silent = true, desc = "Marp Status" },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters = {
+        markdownlint = {
+          args = { "--disable", "MD025", "--" },
+        },
+      },
     },
   },
 }
