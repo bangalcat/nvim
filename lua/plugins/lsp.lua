@@ -11,7 +11,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      diagnostics = { virtual_text = { prefix = "icons" }, update_in_insert = true },
+      diagnostics = {
+        underline = true,
+        virtual_text = { prefix = "icons" },
+        update_in_insert = false,
+      },
 
       servers = {
         bashls = {},
