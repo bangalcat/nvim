@@ -12,6 +12,7 @@ local month = os.date("%m")
 return {
   {
     "renerocksai/telekasten.nvim",
+    enabled = false,
     dependencies = { "nvim-telescope/telescope.nvim" },
     lazy = "VeryLazy",
     keys = {
