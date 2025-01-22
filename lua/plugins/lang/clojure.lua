@@ -1,12 +1,13 @@
-return {
-  "hrsh7th/nvim-cmp",
-  optional = true,
-  dependencies = {
-    "PaterJason/cmp-conjure",
+local M = {
+  {
+    "TreyBastian/nvim-jack-in",
+    enable = false,
+    keys = {
+      { "<localleader>rk", "<cmd>Clj<CR>", desc = "Clojure Jack-In" },
+      { "<localleader>rl", "<cmd>Lein<CR>", desc = "Clojure Jack-In (Lein)" },
+    },
+    config = true,
   },
-  opts = function(_, opts)
-    if type(opts.sources) == "table" then
-      vim.list_extend(opts.sources, { name = "clojure" })
-    end
-  end,
 }
+
+return M

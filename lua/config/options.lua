@@ -31,8 +31,6 @@ for k, v in pairs(opts) do
   vim.opt[k] = v
 end
 
-vim.opt.relativenumber = false
-
 vim.g.root_spec = { "lsp", { "mix.exs", "elixir" }, { ".git", "lua" }, "cwd" }
 
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH

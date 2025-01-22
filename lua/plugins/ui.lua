@@ -67,9 +67,4 @@ return {
       })
     end,
   },
-  --- status line
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-  },
 }
