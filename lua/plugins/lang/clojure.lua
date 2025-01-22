@@ -8,6 +8,14 @@ local M = {
     },
     config = true,
   },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        clojure = { "clj-kondo" },
+      },
+    },
+  },
 }
 
 return M
