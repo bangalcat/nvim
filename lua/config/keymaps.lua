@@ -12,25 +12,7 @@ vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
-vim.keymap.set(
-  "n",
-  "<leader>sq",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace current word in file" }
-)
-vim.keymap.set(
-  "x",
-  "<leader>cw",
-  [[y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\n', 'g')<cr>"_cgn]],
-  { desc = "Replace current word" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>cw",
-  [[<cmd>let @/='\<'.expand('<cword>').'\>'<CR>"_ciw]],
-  { desc = "Replace current word" }
-)
-vim.keymap.set({ "n" }, "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- vim.keymap.set({ "n" }, "<leader>fs", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- my own keymaps
 vim.keymap.set("i", "jk", "<Esc>")
