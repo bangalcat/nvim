@@ -17,7 +17,7 @@ local opts = {
 }
 
 if vim.g.neovide then
-  vim.opt.guifont = { "FiraCode Nerd Font Mono", "h9" }
+  vim.opt.guifont = { "FiraCode D2CodingLigature Nerd", "h9" }
   vim.g.neovide_scale_factor = 0.3
 end
 
@@ -31,6 +31,8 @@ for k, v in pairs(opts) do
   vim.opt[k] = v
 end
 
-vim.g.root_spec = { "lsp", { "mix.exs", "elixir" }, { ".git", "lua" }, "cwd" }
+vim.g.snacks_animate = false
+
+vim.g.root_spec = { { "mix.exs", "elixir" }, "lsp", { ".git", "lua" }, "cwd" }
 
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
