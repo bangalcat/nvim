@@ -53,7 +53,7 @@ return {
     end,
 
     picker = {
-      name = "fzf-lua",
+      name = "telescope.nvim",
     },
   },
 }
