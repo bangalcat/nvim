@@ -16,4 +16,17 @@ return {
       { "<leader>pi", "<cmd>PasteImage<CR>", desc = "Paste Image" },
     },
   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        formatters = {
+          file = {
+            filename_first = true,
+            truncate = 80,
+          },
+        },
+      },
+    },
+  },
 }
