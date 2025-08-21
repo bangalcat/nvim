@@ -56,6 +56,10 @@ return {
       end,
     },
   },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    event = "BufReadPost",
+  },
   --- color tag highlighter
   {
     "norcalli/nvim-colorizer.lua",

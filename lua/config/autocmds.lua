@@ -15,3 +15,13 @@ vim.api.nvim_create_autocmd({ "Filetype" }, {
     vim.b.autoformat = false
   end,
 })
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "ObsidianNoteEnter",
+  callback = function(ev)
+    local note = ev.data.note
+    if note and note.metadata and note.metadata.spell == false then
+      vim.wo.spell = false
+    end
+  end,
+})

@@ -16,6 +16,8 @@ local M = {
       },
     },
   },
+  { "PaterJason/nvim-treesitter-sexp", enabled = false },
+  { "julienvincent/nvim-paredit", opts = {}, event = "LazyFile" },
 }
 
 return M

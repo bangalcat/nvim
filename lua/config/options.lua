@@ -27,6 +27,8 @@ vim.filetype.add({
   },
 })
 
+vim.g.copilot_file_types = { yaml = true, yml = true }
+
 for k, v in pairs(opts) do
   vim.opt[k] = v
 end

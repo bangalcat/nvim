@@ -1,16 +1,8 @@
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*",
-  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-  event = {
-    -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-    -- refer to `:h file-pattern` for more examples
-    "BufReadPre "
-      .. vim.fn.expand("~")
-      .. "/personal/second_brain/*.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/personal/second_brain/*.md",
-  },
+  ft = "markdown",
+  lazy = true,
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
@@ -32,28 +24,46 @@ return {
       folder = "obsidian_templates",
     },
 
-    mappings = {
-      ["gd"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- Toggle check-boxes.
-      ["<leader>ch"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
+    completion = {
+      nvim_cmp = false,
+
+      blink = true,
+
+      min_chars = 2,
     },
 
+    callbacks = {
+      enter_note = function(_, note)
+        vim.keymap.set("n", "gf", "<cmd>Obsidian follow_link<cr>", {
+          buffer = note.bufnr,
+          desc = "Obsidian follow link",
+        })
+
+        vim.keymap.set("n", "fn", "<cmd>Obsidian new_from_templates<cr>", {
+          buffer = note.bufnr,
+          desc = "Obsidian New From Templates",
+        })
+      end,
+    },
     note_id_func = function(title)
       return title
     end,
 
     picker = {
-      name = "telescope.nvim",
+      name = "snacks.pick",
+
+      note_mappings = {
+        -- Create a new note from your query.
+        new = "<C-x>",
+        -- Insert a link to the selected note.
+        insert_link = "<C-l>",
+      },
+      tag_mappings = {
+        -- Add tag(s) to current note.
+        tag_note = "<C-x>",
+        -- Insert a tag at the current location.
+        insert_tag = "<C-l>",
+      },
     },
   },
 }
