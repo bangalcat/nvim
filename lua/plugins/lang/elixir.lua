@@ -1,27 +1,7 @@
 return {
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {})
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "elixir", "heex", "eex" } },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        lexical = {
-          mason = false,
-          cmd = { os.getenv("HOME") .. "/workspace/utils/lexical/bin/start_lexical.sh" },
-          -- cmd = { os.getenv("HOME") .. "/workspace/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
-          settings = {},
-        },
-        -- elixirls = {},
-      },
-    },
   },
   {
     "jfpedroza/neotest-elixir",
