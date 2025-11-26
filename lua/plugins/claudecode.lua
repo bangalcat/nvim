@@ -26,6 +26,7 @@ return {
     },
     opts = {
       -- terminal_cmd = "export ANTHROPIC_BASE_URL=http://localhost:4141 ANTHROPIC_AUTH_TOKEN=dummy ANTHROPIC_MODEL=claude-sonnet-4 ANTHROPIC_SMALL_FAST_MODEL=gpt-4.1 && claude",
+      terminal_cmd = "~/.local/bin/claude",
       terminal = {
         ---@module "snacks"
         ---@type snacks.win.Config|{}
