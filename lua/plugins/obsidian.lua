@@ -32,19 +32,6 @@ return {
       min_chars = 2,
     },
 
-    callbacks = {
-      enter_note = function(_, note)
-        vim.keymap.set("n", "gf", "<cmd>Obsidian follow_link<cr>", {
-          buffer = note.bufnr,
-          desc = "Obsidian follow link",
-        })
-
-        vim.keymap.set("n", "fn", "<cmd>Obsidian new_from_templates<cr>", {
-          buffer = note.bufnr,
-          desc = "Obsidian New From Templates",
-        })
-      end,
-    },
     note_id_func = function(title)
       return title
     end,
