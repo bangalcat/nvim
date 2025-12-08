@@ -38,3 +38,11 @@ vim.g.snacks_animate = false
 vim.g.root_spec = { { "mix.exs", "elixir" }, "lsp", { ".git", "lua" }, "cwd" }
 
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
+
+vim.lsp.config("expert", {
+  cmd = { os.getenv("HOME") .. "/.local/bin/expert" },
+  root_markers = { "mix.exs", ".git" },
+  filetypes = { "elixir", "eelixir", "heex" },
+})
+
+vim.lsp.enable("expert")

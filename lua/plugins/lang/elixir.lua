@@ -4,6 +4,20 @@ return {
     opts = { ensure_installed = { "elixir", "heex", "eex" } },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        expert = {
+          mason = false,
+          --   -- cmd = { os.getenv("HOME") .. "/workspace/utils/lexical/bin/start_lexical.sh" },
+          cmd = { os.getenv("HOME") .. "/.local/bin/expert_nightly" },
+          --   settings = {},
+          filetypes = { "elixir", "eelixir", "heex" },
+        },
+      },
+    },
+  },
+  {
     "jfpedroza/neotest-elixir",
   },
   {

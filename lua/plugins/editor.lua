@@ -20,6 +20,13 @@ return {
     "folke/snacks.nvim",
     opts = {
       picker = {
+        sources = {
+          explorer = {
+            layout = {
+              preview = "main",
+            },
+          },
+        },
         formatters = {
           file = {
             filename_first = true,
