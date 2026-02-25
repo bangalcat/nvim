@@ -7,13 +7,16 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        expert = {
-          mason = false,
-          --   -- cmd = { os.getenv("HOME") .. "/workspace/utils/lexical/bin/start_lexical.sh" },
-          cmd = { os.getenv("HOME") .. "/.local/bin/expert_nightly" },
-          --   settings = {},
-          filetypes = { "elixir", "eelixir", "heex" },
-        },
+        -- expert = {
+        --   mason = false,
+        --   --   -- cmd = { os.getenv("HOME") .. "/workspace/utils/lexical/bin/start_lexical.sh" },
+        --   -- cmd = { os.getenv("HOME") .. "/.local/bin/expert" },
+        --   cmd = {
+        --     os.getenv("HOME") .. "/workspace/projects/expert/apps/expert/_build/prod/rel/plain/bin/start_expert",
+        --   },
+        --   --   settings = {},
+        --   filetypes = { "elixir", "eelixir", "heex" },
+        -- },
       },
     },
   },
