@@ -8,6 +8,7 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {
+    legacy_commands = false,
     workspaces = {
       {
         name = "personal",
@@ -35,6 +36,8 @@ return {
     note_id_func = function(title)
       return title
     end,
+
+    ui = { enable = false },
 
     picker = {
       name = "snacks.pick",
