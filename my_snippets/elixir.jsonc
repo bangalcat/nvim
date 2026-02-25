@@ -15,62 +15,60 @@
   "def inline": {
     "description": "inline def define",
     "prefix": "defi",
-    "body": [
-      "def ${1:function}(${2:args}), do: ${3:body}"
-    ]
+    "body": ["def ${1:function}(${2:args}), do: ${3:body}"],
   },
   "defp inline": {
     "description": "inline defp define",
     "prefix": "defpi",
-    "body": "defp ${1:function}(${2:args}), do: ${3:body}"
+    "body": "defp ${1:function}(${2:args}), do: ${3:body}",
   },
   "ii": {
     "prefix": "ii",
     "body": "IO.inspect($1)",
-    "description": "IO.inspect"
+    "description": "IO.inspect",
   },
   "iib": {
     "prefix": "iib",
     "body": "IO.inspect(binding(), label: \"binding() #{__MODULE__}:#{__ENV__.line} #{DateTime.utc_now}\", limit: :infinity)",
-    "description": "IO.inspect() binding() with module name & line number"
+    "description": "IO.inspect() binding() with module name & line number",
   },
   "iil": {
     "prefix": "iil",
     "body": "IO.inspect(label: \"$1\")",
-    "description": "IO.inspect(label: ...)"
+    "description": "IO.inspect(label: ...)",
   },
   "iill": {
     "prefix": "iill",
     "body": "IO.inspect(label: \"${1:message; }#{String.replace_leading(\"#{__ENV__.file}\", \"#{File.cwd!()}\",\"\")|> Path.relative()}:#{__ENV__.line()}\")",
-    "description": "IO.inspect(label: \"<optional message>; Module:line_nr\")"
+    "description": "IO.inspect(label: \"<optional message>; Module:line_nr\")",
   },
   ":": {
     "prefix": "kva",
     "body": "${2:key}: ${3:value}$1",
-    "description": "key: value"
+    "description": "key: value",
   },
   "::": {
     "prefix": "kvs",
     "body": "${2:key} => ${3:value}$1",
-    "description": "key => value"
+    "description": "key => value",
   },
   "p": {
     "prefix": "p",
     "body": "|> $0",
     "description": "your favorite pipeline (|>)",
     "luasnip": {
-      "priority": 5000
-    }
+      "priority": 5000,
+    },
   },
   "ok": {
     "prefix": "ok",
     "body": "{:ok, $2} $1",
-    "description": "{:ok, ... } ..."
+    "description": "{:ok, ... } ...",
   },
   "err": {
     "prefix": "error",
     "body": "{:error, $2} $1",
-    "description": "{:error, ... } ..."
+    "description": "{:error, ... } ...",
   },
   // "Plain Module": {
   //   "prefix": "defmo",
@@ -104,9 +102,9 @@
       "\tend",
       "",
       "\t$0",
-      "end"
+      "end",
     ],
-    "description": "My GenServer"
+    "description": "My GenServer",
   },
   "GenServer Cast": {
     "prefix": "gscast",
@@ -115,9 +113,9 @@
       "\tGenServer.cast(@me, :${1:function})",
       "end",
       "",
-      "${0}"
+      "${0}",
     ],
-    "description": "GenServer cast function"
+    "description": "GenServer cast function",
   },
   "GenServer Call": {
     "prefix": "gscall",
@@ -126,15 +124,12 @@
       "\tGenServer.call(@me, :${1:function})",
       "end",
       "",
-      "${0}"
+      "${0}",
     ],
-    "description": "GenServer call function"
+    "description": "GenServer call function",
   },
   "ExUnit": {
-    "prefix": [
-      "ex_unit",
-      "exu"
-    ],
+    "prefix": ["ex_unit", "exu"],
     "body": [
       "defmodule ${RELATIVE_FILEPATH/^([^\\/\\\\]+[\\/\\\\])|(\\.ex|\\.exs)$|([^._\\/\\\\]+)|_|([\\/\\\\])/${3:/capitalize}${4:+.}/g} do",
       "\tuse ExUnit.Case",
@@ -144,9 +139,9 @@
       "\t\ttest \"${3:definition_of_this_test}\" do",
       "\t\tend",
       "\tend",
-      "end"
+      "end",
     ],
-    "description": "Insert code for a ExUnit"
+    "description": "Insert code for a ExUnit",
   },
   "LiveViewLiveComponent": {
     "prefix": "lvc",
@@ -168,8 +163,8 @@
       "\t\t${0}",
       "\t\t\"\"\"",
       "\tend",
-      "end"
-    ]
+      "end",
+    ],
   },
   "LiveView": {
     "prefix": "lv",
@@ -196,8 +191,8 @@
       "\t\t${0}",
       "\t\t\"\"\"",
       "\tend",
-      "end"
-    ]
+      "end",
+    ],
   },
   "LiveViewHandleEvent": {
     "prefix": "lvhe",
@@ -206,8 +201,8 @@
       "def handle_event(\"${1:event}\", %{\"${2:var}\" => ${2:var}} = _params, socket) do",
       "\t${0}",
       "\t{:noreply, socket}",
-      "end"
-    ]
+      "end",
+    ],
   },
   "LiveViewHandleInfo": {
     "prefix": "lvhi",
@@ -216,8 +211,8 @@
       "def handle_info(${1:event}, socket) do",
       "\t${0}",
       "\t{:noreply, socket}",
-      "end"
-    ]
+      "end",
+    ],
   },
   "LiveViewHandleParams": {
     "prefix": "lvhp",
@@ -226,22 +221,16 @@
       "def handle_params(${1:params}, ${2:_uri}, socket) do",
       "\t${0}",
       "\t{:noreply, socket}",
-      "end"
-    ]
+      "end",
+    ],
   },
   "Sigil": {
     "prefix": "sss",
-    "body": [
-      "~${1:H}\"\"\"",
-      "${0}",
-      "\"\"\""
-    ]
+    "body": ["~${1:H}\"\"\"", "${0}", "\"\"\""],
   },
   "Verified Routes Sigil": {
     "prefix": "ps",
-    "body": [
-      "~p\"/${1}\""
-    ]
+    "body": ["~p\"/${1}\""],
   },
   "LiveView Function Component": {
     "prefix": "defc",
@@ -250,19 +239,15 @@
       "\t~H\"\"\"",
       "\t${2}",
       "\t\"\"\"",
-      "end"
-    ]
+      "end",
+    ],
   },
   "LiveView Function Component Attrs": {
     "prefix": "attr",
-    "body": [
-      "attr :${1:class}, :${2:string}${3:, required: true}"
-    ]
+    "body": ["attr :${1:class}, :${2:string}${3:, required: true}"],
   },
   "LiveView Function Component Slots": {
     "prefix": "slot",
-    "body": [
-      "slot :${1:inner_block}"
-    ]
-  }
+    "body": ["slot :${1:inner_block}"],
+  },
 }
